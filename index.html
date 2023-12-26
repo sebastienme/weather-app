@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>&#x1F31E; Météo</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <title>Weather</title>
 </head>
 <body>
-    <header></header>
-    <main></main>
+    <header>
+        <div class="weather-data">
+            <div class="weather-data__condition"></div>
+            <div class="weather-data__city"></div>
+            <div class="weather-data__date"></div>
+            <div class="weather-data__time"></div>
+            <div class="weather-data__temp"></div>
+            <div class="weather-data__display"></div>
+            <div class="weather-data__icon"><img src="" alt=""></div>
+            <div class="weather-data__search-input">
+                <form id="user-search">
+                    <input class="input-response" type="text" id="name" name="name" required>
+                </form>
+                <div class="weather-data__search-input__alert"></div>
+            </div>
+        </div>
+        <div class="weather-details"></div>
+    </header>
     <footer></footer>
     <script src="script.js"></script>
 </body>

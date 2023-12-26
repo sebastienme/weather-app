@@ -99,4 +99,67 @@ header {
 
 .weather-data__date {
     margin-top: 0.5rem;
+    font-weight: 500;
+    font-size: var(--small-text);
+}
+
+.weather-data__time {
+    font-weight: 500;
+    font-size: var(--small-text);
+}
+
+.weather-data__temp {
+    font-size: var(--h1-text);
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+.weather-data__icon img {
+    width: 100px;
+    height: auto;
+}
+
+.weather-data__search-input {
+    margin-top: 1.5rem;
+}
+
+#user-search {
+    margin-top: 1rem;
+    height: 30px;
+    max-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f5f5f5;
+    padding: 6px 12px;
+}
+
+.input-response {
+    height: 100%;
+    flex-shrink: 2;
+    max-width: 150px;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: #f5f5f5;
+    font-weight: 600;
+}
+
+.input-response::placeholder {
+    color: #fff; /* Custom color for the placeholder */
+}
+
+.input-response:focus {
+    outline: none;
+}
+
+.weather-data__search-input__alert {
+    margin-top: 0.5rem;
+    font-size: var(--small-text);
+    font-weight: 600;
+}
+
+.weather-data__search-input__alert-2 {
+    margin-top: 0.2rem;
+    font-size: var(--small-text);
+    font-weight: 600;
 }

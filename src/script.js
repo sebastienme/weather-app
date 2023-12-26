@@ -13,9 +13,12 @@ export const weatherApi = (() => {
             // Check if the HTTP response status is in the range of 200-299 (indicating success)
             if (!cityApi.ok) {
                 editDom.addText(cityObj.error.message, '.weather-data__search-input__alert');
+                editDom.addText("Search must be in the form of 'City', 'City, State' or 'City, Country'.", '.weather-data__search-input__alert-2');
                 console.log(cityObj.error.message);
                 throw new Error(`HTTP error! Status: ${cityApi.status}`);
             }
+            editDom.clearDiv('.weather-data__search-input__alert');
+            editDom.clearDiv('.weather-data__search-input__alert-2');
             console.log(cityObj)
             console.log("ici")
             return cityObj;  
@@ -64,18 +67,21 @@ export const weatherApi = (() => {
 
 const editDom = (() => {
     const addText = (data, selector) => {
-        const element = document.querySelector(selector);
-        element.innerHTML = data;
+        document.querySelector(selector).innerHTML = data;
     };
 
     const addImage = (imageSrc, selector) => {
-        const img = document.querySelector(selector);
-        img.src = imageSrc;
+        document.querySelector(selector).src = imageSrc;
     };
+
+    const clearDiv = (selector) => {
+        document.querySelector(selector).innerHTML = '';
+    }
 
     return {
         addText,
-        addImage
+        addImage,
+        clearDiv
     }
 })();
 

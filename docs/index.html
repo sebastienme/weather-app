@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="./docs/images/favicon-16x16.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Weather</title>
+</head>
+<body style="background-image: url(/docs/images/cabane-lake.jpg);">
+    <header>
+        <div class="weather-data">
+            <div class="weather-data__condition"></div>
+            <div class="weather-data__city"></div>
+            <div class="weather-data__date"></div>
+            <div class="weather-data__time"></div>
+            <div class="weather-data__temp"></div>
+            <div class="weather-data__display"></div>
+            <div class="weather-data__icon"><img src="" alt=""></div>
+            <div class="weather-data__search-input">
+                <form id="user-search">
+                    <input class="input-response" type="text" id="name" name="name" required>
+                </form>
+                <div class="weather-data__search-input__alert"></div>
+            </div>
+        </div>
+        <div class="weather-details">
+            <div class="weather-details__item weather-details__feels">
+                <div class="weather-details__item__icon"><span class="material-symbols-outlined">thermostat</span></div>
+                <div class="weather-details__item__data">
+                    <div class="weather-details__item__data__title">Feels Like</div>
+                    <div class="weather-details__item__data__value feels"></div>
+                </div>
+            </div>
+            <div class="weather-details__item weather-details__hum">
+                <div class="weather-details__item__icon"><span class="material-symbols-outlined">humidity_mid</span></div>
+                <div class="weather-details__item__data">
+                    <div class="weather-details__item__data__title">Humidity</div>
+                    <div class="weather-details__item__data__value hum"></div>
+                </div>
+            </div>
+            <div class="weather-details__item weather-details__rain">
+                <div class="weather-details__item__icon"><span class="material-symbols-outlined">rainy</span></div>
+                <div class="weather-details__item__data">
+                    <div class="weather-details__item__data__title">Chance of Rain</div>
+                    <div class="weather-details__item__data__value rain"></div>
+                </div>
+            </div>
+            <div class="weather-details__item weather-details__wind">
+                <div class="weather-details__item__icon"><span class="material-symbols-outlined">air</span></div>
+                <div class="weather-details__item__data">
+                    <div class="weather-details__item__data__title">Wind Speed</div>
+                    <div class="weather-details__item__data__value wind"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <footer></footer>
+    <script src="./bundle.js"></script>
+</body>
+</html>

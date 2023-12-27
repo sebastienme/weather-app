@@ -51,6 +51,7 @@ export const weatherApi = (() => {
             if (cityObjCurrent !== undefined) {
                 editDom.addText(cityObjCurrent.current.condition.text, '.weather-data__condition');
                 editDom.addText(cityObjCurrent.location.name + ', ' + cityObjCurrent.location.region, '.weather-data__city');
+                editDom.addText(cityObjCurrent.location.name + ' Today', 'title');
                 editDom.addText(formatString.formatDate(cityObjCurrent.location.localtime), '.weather-data__date');
                 editDom.addText(formatString.formatTime(cityObjCurrent.location.localtime), '.weather-data__time');
                 editDom.addText(Math.round(cityObjCurrent.current.temp_c) + ' °C', '.weather-data__temp');

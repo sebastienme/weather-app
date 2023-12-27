@@ -163,3 +163,29 @@ header {
     font-size: var(--small-text);
     font-weight: 600;
 }
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.weather-details__item {
+    display: flex;
+    gap: 10px;
+}
+
+.weather-details__item__icon span {
+    font-size: var(--h2-text);
+}
+
+.weather-details__item__data__title {
+    font-weight: 600;
+    font-size: var(--small-text);
+}
+
+.weather-details__item__data__value {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: var(--h4-text);
+}

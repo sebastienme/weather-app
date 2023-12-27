@@ -1,10 +1,14 @@
 import { parse, format } from 'date-fns';
 
+// WeatherApi is the factory function that contains all the function needed to connect and interact with the weatherAPI api (https://www.weatherapi.com/docs/)
 export const weatherApi = (() => {
+    // my Api Key
     const getApiKey = () => {
         return '7dae99872c724371a9c183525232412'
     }
 
+    // Function that return a city as an object.Current object contains current or realtime weather information for a given city.
+    // 'Realtime API' - see weatherAPI doc
     const getCityCurrent = async (city) => {
         try {
             const cityApi = await fetch(`https://api.weatherapi.com/v1/current.json?key=${getApiKey()}&q=${city}`);
@@ -23,6 +27,9 @@ export const weatherApi = (() => {
             console.log(error);
         }
     }
+
+     /* Function that return a city as an object.Forecast object contains day weather forecast and hourly interval weather information for a given city.
+     'Forecast API' - see weatherAPI doc */
     const getCityForecast = async (city) => {
         try {
             const cityApi = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${getApiKey()}&q=${city}`);
@@ -33,6 +40,8 @@ export const weatherApi = (() => {
         }
     }
 
+     /* Function that play the role of a 'Chef d'Orchestre'. It will gather all the data/details from a given city before
+     sending it to the dom and update the dom. */
     const fetchCity = async (city) => {
         try {
             const cityObjCurrent = await getCityCurrent(city);
@@ -62,15 +71,19 @@ export const weatherApi = (() => {
     }
 })();
 
+// Factory function to edit/modified the dom
 const editDom = (() => {
+    // Function to add a string to the dom
     const addText = (data, selector) => {
         document.querySelector(selector).innerHTML = data;
     };
 
+    // Function to add an image to the dom
     const addImage = (imageSrc, selector) => {
         document.querySelector(selector).src = imageSrc;
     };
 
+    // Function that clears the dom
     const clearDiv = (selector) => {
         document.querySelector(selector).innerHTML = '';
     }
@@ -82,7 +95,9 @@ const editDom = (() => {
     }
 })();
 
+// Factory function that return functions for the search input form
 export const form = (() => {
+    // Functions that send the user search query for the city he is looking for. A search bar!
     const SubmitCitySearchQuery = () => {
         const userForm = document.getElementById('user-search');
         userForm.addEventListener('submit', (e) => {
@@ -91,13 +106,15 @@ export const form = (() => {
             weatherApi.fetchCity(inputResponse);
         })
     }
-    
+
     return {
         SubmitCitySearchQuery
     }
 })();
 
+// Factory function that return functions for formatting Strings
 const formatString = (() => {
+    // Function that format the dates
     const formatDate = (inputDateString) => {
         // Parse the input date string
         const parsedDate = parse(inputDateString, 'yyyy-MM-dd HH:mm', new Date());
@@ -106,7 +123,7 @@ const formatString = (() => {
         
         return formattedDate; 
     }
-
+    // Function that format the time
     const formatTime = (inputDateString) => {
         // Parse the input date string
         const parsedDate = parse(inputDateString, 'yyyy-MM-dd HH:mm', new Date());

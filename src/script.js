@@ -14,13 +14,10 @@ export const weatherApi = (() => {
             if (!cityApi.ok) {
                 editDom.addText(cityObj.error.message, '.weather-data__search-input__alert');
                 editDom.addText("Search must be in the form of 'City', 'City, State' or 'City, Country'.", '.weather-data__search-input__alert-2');
-                console.log(cityObj.error.message);
                 throw new Error(`HTTP error! Status: ${cityApi.status}`);
             }
             editDom.clearDiv('.weather-data__search-input__alert');
             editDom.clearDiv('.weather-data__search-input__alert-2');
-            console.log(cityObj)
-            console.log("ici")
             return cityObj;  
         } catch (error) {
             console.log(error);

@@ -44,13 +44,13 @@ export const weatherApi = (() => {
             // if undefined, it's because the user has type and submit a city that is not in database
             if (cityObjCurrent !== undefined) {
                 editDom.addText(cityObjCurrent.current.condition.text, '.weather-data__condition');
-                editDom.addText(cityObjCurrent.location.name, '.weather-data__city');
+                editDom.addText(cityObjCurrent.location.name + ', ' + cityObjCurrent.location.region, '.weather-data__city');
                 editDom.addText(formatString.formatDate(cityObjCurrent.location.localtime), '.weather-data__date');
                 editDom.addText(formatString.formatTime(cityObjCurrent.location.localtime), '.weather-data__time');
-                editDom.addText(cityObjCurrent.current.temp_c + ' °C', '.weather-data__temp');
+                editDom.addText(Math.round(cityObjCurrent.current.temp_c) + ' °C', '.weather-data__temp');
                 editDom.addImage(cityObjCurrent.current.condition.icon, '.weather-data__icon img');
 
-                editDom.addText(cityObjCurrent.current.feelslike_c + ' °C', '.weather-details__item__data__value.feels');
+                editDom.addText(Math.round(cityObjCurrent.current.feelslike_c) + ' °C', '.weather-details__item__data__value.feels');
                 editDom.addText(cityObjCurrent.current.humidity  + ' %', '.weather-details__item__data__value.hum');
                 editDom.addText(cityObjForecast.forecast.forecastday[0].day.daily_chance_of_rain  + ' %', '.weather-details__item__data__value.rain');
                 editDom.addText(cityObjCurrent.current.wind_mph + ' mp/h', '.weather-details__item__data__value.wind');
